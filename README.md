@@ -1,2 +1,8 @@
-# Online_IDE
-Jetzt mal ein Versuch mit einem optimierten prompt in einer online Idee die ganze Geschichte umzusetzen mal sehen ob das klappt ich bin gespannt
+# Voice Cloning Projekt
+
+Dieses Projekt enthält eine Web-Anwendung zum Klonen von Stimmen.
+
+## Struktur
+
+- `/frontend`: Enthält die React-Benutzeroberfläche.
+- `/backend`: Enthält den FastAPI-Server.
