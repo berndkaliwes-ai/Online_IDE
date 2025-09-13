@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 const DataManager: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadMessage, setUploadMessage] = useState<string>('');
+  const [transcription, setTranscription] = useState<string>('');
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setSelectedFile(event.target.files[0]);
       setUploadMessage('');
+      setTranscription(''); // Reset transcription on new file selection
     }
   };
 
@@ -20,7 +22,8 @@ const DataManager: React.FC = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    setUploadMessage('Datei wird hochgeladen...');
+    setUploadMessage('Datei wird hochgeladen und transkribiert...');
+    setTranscription('');
 
     try {
       const response = await fetch('http://localhost:8000/upload-audio/', {
@@ -30,9 +33,10 @@ const DataManager: React.FC = () => {
 
       if (response.ok) {
         const result = await response.json();
-        setUploadMessage(`Datei erfolgreich hochgeladen: ${result.filename}`);
+        setUploadMessage(`Datei erfolgreich verarbeitet: ${result.filename}`);
+        setTranscription(result.transcription);
       } else {
-        setUploadMessage('Fehler beim Hochladen der Datei.');
+        setUploadMessage('Fehler beim Verarbeiten der Datei.');
       }
     } catch (error) {
       setUploadMessage('Netzwerkfehler oder Server nicht erreichbar.');
@@ -45,13 +49,21 @@ const DataManager: React.FC = () => {
       <h2>Datenmaterial-Manager</h2>
 
       <section>
-        <h3>1. Audiodateien hochladen</h3>
-        <p>Laden Sie hier Ihre aufgenommenen Audiodateien hoch (z.B. im WAV-Format).</p>
+        <h3>1. Audiodateien hochladen & Transkribieren</h3>
+        <p>Laden Sie eine WAV-Datei hoch, um sie automatisch transkribieren zu lassen.</p>
         <input type="file" accept=".wav" onChange={handleFileChange} />
         <button onClick={handleUpload} disabled={!selectedFile}>
-          Ausgewählte Datei hochladen
+          Hochladen & Transkribieren
         </button>
         {uploadMessage && <p>{uploadMessage}</p>}
+        {transcription && (
+          <div>
+            <h4>Transkription:</h4>
+            <blockquote style={{ fontStyle: 'italic', background: '#222', padding: '10px', borderRadius: '5px' }}>
+              <p>{transcription}</p>
+            </blockquote>
+          </div>
+        )}
       </section>
 
       <section>
@@ -68,7 +80,7 @@ const DataManager: React.FC = () => {
           <li>
             <span>audio_clip_001.wav</span>
             <button>Abspielen</button>
-            <button>Löschen</button>
+            <button>Löschen</button
           </li>
         </ul>
       </section>
