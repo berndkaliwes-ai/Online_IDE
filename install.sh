@@ -71,7 +71,11 @@ check_prerequisites() {
 }
 
 detect_repo() {
-    if [[ "$PWD" == */autogpt_platform/installer ]]; then
+    if [[ -d "$PWD/AutoGPT/.git" ]]; then
+        REPO_DIR="$PWD/AutoGPT"
+        CLONE_NEEDED=false
+        print_color "GREEN" "Using existing AutoGPT repository at $REPO_DIR."
+    elif [[ "$PWD" == */autogpt_platform/installer ]]; then
         if [[ -d "../../.git" ]]; then
             REPO_DIR="$(cd ../..; pwd)"
             cd ../.. || handle_error "Failed to navigate to repo root"
@@ -85,7 +89,7 @@ detect_repo() {
         print_color "GREEN" "Using existing AutoGPT repository."
     else
         CLONE_NEEDED=true
-        REPO_DIR="$(pwd)/AutoGPT"
+        REPO_DIR="$PWD/AutoGPT"
     fi
 }
 
