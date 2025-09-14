@@ -1,0 +1,38 @@
+User
+Rolle & Ziel
+Du agierst als erfahrener KI-Software-Architekt. Deine Aufgabe ist es, eine umfassende, extrem detaillierte und praxisorientierte Schritt-für-Schritt-Anleitung für die Entwicklung einer Voice Cloning Software zu erstellen. Die Anleitung muss so verfasst sein, dass ein technisch interessierter 16-Jähriger sie ohne Vorkenntnisse in KI oder Cloud-Computing erfolgreich umsetzen kann. Verwende einfache Sprache, erkläre Fachbegriffe und das "Warum" hinter den Entscheidungen.
+Projektziele & Kernspezifikationen
+Funktionaler Kern:
+Voice Cloning: Erstellung eines individuellen Stimmmodells aus ca. 60 Minuten Audiomaterial eines einzelnen Sprechers.
+Text-to-Speech (TTS): Synthetisierung beliebiger Texte mit der geklonten Stimme in sehr hoher, natürlicher Qualität.
+Benutzeroberfläche (UI): Eine moderne, intuitive und ansprechend gestaltete Web-Oberfläche, die den gesamten Prozess von der Aufnahme bis zur Synthese benutzerfreundlich abbildet.
+Datenmanagement:
+Datenmaterial-Manager: Eine UI-Komponente, die den Nutzer durch die Erstellung der Trainingsdaten führt. Funktionen: Bereitstellung von Texten zum Vorlesen, Aufnahme direkt im Browser, einfache Nachbearbeitung (Zuschneiden, Abhören) und Verwaltung der Audio-Segmente.
+Automatisierte Datenaufbereitung: Anleitung zur Nutzung kostenfreier Tools (z.B. Whisper) zur automatischen Transkription und Segmentierung der Aufnahmen in das für das Training erforderliche Format (LJ-Speech).
+Technologischer Rahmen:
+Trainingsumgebung: Google Cloud Platform (GCP) mit einem Budget von ca. 1100 €.
+Inferenz- & Anwendungs-Hosting: Gitpod, um laufende Betriebskosten zu vermeiden. Die TTS-Synthese wird hier ausgeführt.
+Containerisierung: Einsatz von Docker, um eine portable und reproduzierbare Entwicklungs- und Laufzeitumgebung zu gewährleisten.
+Technologie-Stack (Vorgabe): Open-Source-Lösungen sind zu bevorzugen. Nutze Coqui TTS für Voice Cloning, FastAPI für das Backend und React für das Frontend.
+Projektphasen
+Die Anleitung muss den folgenden 7 Phasen folgen:
+Konzeptionsphase: Definition der Architektur und Auswahl der Technologien.
+Datenaufbereitung: Erstellung und Vorverarbeitung des Audiomaterials.
+Docker-Umgebung aufsetzen: Konfiguration der containerisierten Umgebung.
+Modelltraining: Durchführung des Trainings auf der Google Cloud Platform.
+Inferenz und Anwendung: Deployment des Modells auf Gitpod für die TTS-Nutzung.
+Qualitätssicherung: Systematisches Testen und Optimieren.
+Dokumentation und Übergabe: Erstellung der finalen Anleitungen.
+Anweisungen für die Erstellung der Anleitung
+Struktur pro Phase: Beginne jede der 7 Phasen mit einer kurzen, konzeptionellen Checkliste (3-5 Punkte), die die Kernziele der Phase für den Laien verständlich zusammenfasst.
+Detailtiefe & Sprache: Die nachfolgende Schritt-für-Schritt-Anleitung ist das Herzstück. Sie muss extrem detailliert und in einfacher, klarer Sprache verfasst sein. Gib exakte Befehle zum Kopieren, erkläre jeden Parameter und liefere konkrete Code-Snippets. Führe den Nutzer bei jedem Klick und jeder Eingabe an die Hand.
+Validierung: Schließe jede Phase mit einem kurzen Absatz namens "Validierung" ab (1-2 Sätze), der den erreichten Meilenstein in einfachen Worten bestätigt und dem Nutzer ein Erfolgserlebnis vermittelt.
+Praxisorientierung: Fokussiere dich auf den einfachsten und direktesten Weg zum Ziel. Vermeide unnötige Komplexität und alternative Lösungswege, um Verwirrung zu vermeiden.
+Gegebene Annahmen (Nicht in Frage stellen)
+Datenschutz: Die Privatsphäre des Nutzers ist zentral. Alle Audiodaten werden nur lokal bzw. im privaten Cloud-Account des Nutzers verarbeitet.
+Ausgangsmaterial: Der Nutzer startet bei Null. Die Anleitung muss die Erstellung des Audiomaterials von Grund auf beschreiben.
+Anzahl der Stimmen: Das System ist für eine einzelne, benutzerdefinierte Stimme ausgelegt.
+UI-Fokus: Die Benutzerfreundlichkeit ist entscheidend. Die UI soll den Nutzer anleiten und motivieren.
+Aufforderung
+Beginne jetzt mit der Ausarbeitung der detaillierten Anleitung, startend mit Phase 1. Halte dich exakt an die oben genannten Vorgaben.
+
