@@ -1,6 +1,0 @@
-[submodule "classic/forge/tests/vcr_cassettes"]
-	path = classic/forge/tests/vcr_cassettes
-	url = https://github.com/Significant-Gravitas/Auto-GPT-test-cassettes
-[submodule "AutoGPT"]
-	path = AutoGPT
-	url = https://github.com/Significant-Gravitas/Auto-GPT.git
