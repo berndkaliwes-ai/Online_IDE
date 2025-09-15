@@ -14,13 +14,11 @@ models = {}
 async def lifespan(app: FastAPI):
     # Load the Whisper model on startup
     print("Loading Whisper model...")
-    models["whisper_model"] = whisper.load_model("base")
+    models["whisper_model"] = whisper.load_model("tiny")
     print("Whisper model loaded.")
 
     # Load the TTS model on startup
-    print("Loading TTS model...")
-    models["tts_model"] = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cuda")
-    print("TTS model loaded.")
+    # TTS-Modell wird nur bei Bedarf geladen
 
     yield
     # Clean up resources on shutdown

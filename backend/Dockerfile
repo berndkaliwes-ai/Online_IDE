@@ -12,7 +12,9 @@ RUN pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt
 # Anwendungs-Code kopieren
 COPY . .
 
-# Port freigeben, auf dem die Anwendung läuft
+
+# Lizenzbedingungen für Coqui TTS automatisch akzeptieren
+ENV COQUI_TOS_AGREED=1
 EXPOSE 8000
 
 # Anwendung mit Uvicorn starten
