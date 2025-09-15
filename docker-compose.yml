@@ -5,6 +5,8 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
+    environment:
+      - COQUI_TOS_AGREED=1
     volumes:
       - ./backend:/app
 

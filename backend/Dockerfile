@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Abhängigkeiten installieren
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements-dev.txt .
+RUN pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt
 
 # Anwendungs-Code kopieren
 COPY . .
