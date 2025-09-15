@@ -4,6 +4,9 @@ FROM python:3.11-slim
 # Arbeitsverzeichnis im Container festlegen
 WORKDIR /app
 
+# Systemabhängigkeiten installieren
+RUN apt-get update && apt-get install -y ffmpeg
+
 # Abhängigkeiten installieren
 COPY requirements.txt .
 COPY requirements-dev.txt .
